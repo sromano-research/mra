@@ -7,7 +7,7 @@ The rover starts its journey from the landing position -- i.e., at coordinates _
 
 To let the rover move on the planet, the rover receives a command string -- it can contain a single command or a combination of single commands. Once the rover has executed the commands (specified in the command string), it returns a string containing its new position and direction, together with the obstacles it has encountered (if any).
 
-You do not need to know more so far. The User Stories section will provide further details.
+You do not need to know more so far. The _User Stories_ section will provide further details.
 
 ## Instructions for You
 * FORK this project and make sure your forked repository is PUBLIC. Then, IMPORT the forked project into PyCharm.
@@ -24,4 +24,17 @@ You do not need to know more so far. The User Stories section will provide furth
 
 ## API Usage
 Take some minutes to understand, in broad terms, how the API works. If you do not fully understand the API, do not worry because more details will be given later in the _User Stories_ section. A typical API usage follows.
+
+```python
+# Create two obstacles at the coordinates (5,5) and (7,8).
+planet_obstacles = ["(5,5)", "(7,8)"]
+# Initialize the rover at the coordinates (0,0), facing North, on a
+# 10x12 planet with obstacles at the coordinates (5,5) and (7,8)
+mars_rover = MarsRover(10, 12, planet_obstacles)
+# Determinate whether, or not, the planet contains an obstacle in a cell contain_obstacle = mars_rover.planet_contains_obstacle_at(7, 8)
+# Specify a command string
+command_string = "f"
+# Let the rover move on the planet according to the command string. The return string contains the new position of the rover, its direction, and the obstacles it has encountered while moving on the planet (if any)
+return_string = mars_rover.execute_command(command_string)
+```
 
