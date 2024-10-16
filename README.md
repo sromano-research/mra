@@ -81,4 +81,31 @@ The rover turns right or left when it receives a command string _"r"_ or _"l"_, 
  
 **Examples:**
 * A rover with status _"(0,0,N)"_, after executing the command string _"r"_, returns a string consisting of its new status, namely: _"(0,0,E)"_.
-* On the other hand, a rover with status _"0,0,N)"_, after executing the command string _"l"_, returns: "(0,0,W)".
+* On the other hand, a rover with status _"(0,0,N)"_, after executing the command string _"l"_, returns: "(0,0,W)".
+
+### User Story 4 -- Moving Forward
+The rover moves forward (of one cell) when it receives the command string _"f"_.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover move forward and then return a string consisting of its new status.
+ 
+**Example:** 
+* A rover with status _"(7,6,N)"_, after executing the command string _"f"_, returns a string consisting of its new status, namely: _"(7,7,N)"_.
+
+### User Story 5 -- Moving Backward
+The rover moves backward (of one cell) when it receives the command string _"b"_.
+
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover move backward and then return a string consisting of its new status.
+
+**Example:** 
+* A rover with status _"(5,8,E)"_, after executing the command string _"b"_, returns a string consisting of its new status, namely:_"(4,8,E)"_.
+
+### User Story 6 -- Moving Combined
+The command string can contain a combination of single commands (i.e., _"r"_, _"l"_, _"b"_, and _"f"_). When the command string corresponds to a combination of single commands, the rover sequentially executes every single command and then returns a string containing its new status.
+
+**Requirement:**
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover execute a sequence of single commands and then return a string consisting of its new status.
+
+**Example:** 
+* A rover with status _"(0,0,N)"_, after executing the command string _"ffrff"_, returns a string consisting of its new status, namely: _"(2,2,E)"_.
