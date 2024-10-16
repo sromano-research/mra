@@ -28,8 +28,7 @@ Take some minutes to understand, in broad terms, how the API works. If you do no
 ```python
 # Create two obstacles at the coordinates (5,5) and (7,8).
 planet_obstacles = ["(5,5)", "(7,8)"]
-# Initialize the rover at the coordinates (0,0), facing North, on a
-# 10x12 planet with obstacles at the coordinates (5,5) and (7,8)
+# Initialize the rover at the coordinates (0,0), facing North, on a 10x12 planet with obstacles at the coordinates (5,5) and (7,8)
 mars_rover = MarsRover(10, 12, planet_obstacles)
 # Determinate whether, or not, the planet contains an obstacle in a cell contain_obstacle = mars_rover.planet_contains_obstacle_at(7, 8)
 # Specify a command string
