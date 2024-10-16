@@ -109,3 +109,49 @@ The command string can contain a combination of single commands (i.e., _"r"_, _"
 
 **Example:** 
 * A rover with status _"(0,0,N)"_, after executing the command string _"ffrff"_, returns a string consisting of its new status, namely: _"(2,2,E)"_.
+
+### User Story 7 -- Wrapping
+The planet is actually a sphere. Therefore, when the rover goes beyond an edge, its new position is at the opposite edge.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover go beyond the edges and then return a string consisting of its new status.
+ 
+**Example:** 
+* On a 10x10 planet, a rover with status _"(0,0,N)"_, after executing the command string _"b"_, returns a string consisting of its new status, namely: _"(0,9,N)"_.
+
+### User Story 8 -- Single Obstacle
+The rover can encounter an obstacle while executing commands and thus moving on the planet. When this happens, the rover cannot pass through the obstacle (i.e., it does not move). Therefore, it takes note of the encountered obstacle and then tries to continue executing the remaining commands (in the command string). Once all the commands have been executed, the rover returns a string containing its new status and the encountered obstacle. If the same obstacle has been encountered twice or more, it is reported only once.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover deal with an obstacle and then return a string containing its new status and the encountered obstacle.
+ 
+**Example:** 
+* There is one obstacle on the planet at coordinates _(2,2)_. A rover with status _"(0,0,N)"_, after executing the command string _"ffrfff"_, returns a string containing its new status and the encountered obstacle, namely: "(1,2,E)(2,2)". Note that the same obstacle has been encountered twice but reported only once.
+
+### User Story 9 -- Multiple Obstacles
+The rover can encounter multiple obstacles while executing a command and thus moving on the planet. When this happens, the rover (which cannot pass through obstacles) returns a string containing its new status and the encountered obstacle (in the order with which they have been encountered). If the same obstacle has been encountered twice or more, it is reported only once.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover deal with more obstacles and then return a string containing its new status and the encountered obstacles.
+ 
+**Example:** 
+There are two obstacles on the planet at coordinates _(2,2)_ and _(2,1)_. A rover with status _"(0,0,N)"_, after executing the command string _"ffrfffrflf"_, returns a string containing its new status and the encountered obstacles, namely: _"(1,1,E)(2,2)(2,1)"_. Note that the first obstacle has been encountered twice but reported only once.
+
+### User Story 10 -- Wrapping and Obstacles
+The rover can encounter an obstacle when trying to go beyond an edge.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover deal with obstacles, when trying to go beyond edges, and then return a string containing its new status and the encountered obstacles.
+ 
+**Example:** 
+On a 10x10 planet, there is an obstacle at coordinates _(0,9)_. A rover with status _"(0,0,N)"_, after executing the command string _"b"_, returns a string containing its new status and the encountered obstacle, namely: _"(0,0,N)(0,9)"_.
+
+### User Story 11 -- A Tour Around the Planet
+ 
+The rover takes a tour around the planet, encountering several obstacles and going beyond edges in any dimension.
+ 
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover take a tour around the planet and then return a string containing its new status and the encountered obstacles.
+ 
+**Example:** 
+* On a 6x6 planet, there are obstacles at coordinates _(2,2)_, _(0,5)_, and _(5,0)_. A rover with status _"(0,0,N)"_, after executing the command string _"ffrfffrbbblllfrfrbbl"_, returns a string containing its new status and the encountered obstacles, namely: _"(0,0,N)(2,2)(0,5)(5,0)"_.
