@@ -42,7 +42,43 @@ See the provided source files to improve your understanding of the API before st
 ## User Stories
 Remember to read and implement the user stories once at a time (in the provided order). Therefore, do not read the next user story, if the current one is not implemented yet.
 
-### User Story 1 -- 
+### User Story 1 -- Planet
 The planet, where the rover moves, is represented as a grid with _x_ and _y_ coordinates. The origin of the grid, namely _(0,0)_, is at the bottom-left corner (see the figure below).
 
+The planet may contain obstacles in its cells. The obstacles are defined through a list of strings (without white spaces), where each string (representing an obstacle) is formatted as follows: _"(oi_x,oi_y)"_. For example, a list containing the strings _"(0,1)"_ and _"(2,2)"_ indicates that there are two obstacles on the planet: the former in the cell with coordinates _(0,1)_ and the latter in the cell with coordinates _(2,2)_ (see the figure below). 
 
+![image](https://github.com/user-attachments/assets/248d5301-70fd-49e0-99df-100ae72c20f3)
+
+**Requirement:**
+* Implement ```MarsRover.__init__(self, planet_length: int, planet_width: int, planet_obstacles: list[str])``` to define a planet as a grid with a given length (x-axis) and width (y-axis) and obstacles in its cells.
+* Implement ```MarsRover.planet_contains_obstacle_at(self, x: int, y: int) -> bool``` to determine whether, or not, a cell contains an obstacle.
+
+**Example:** 
+* A 10x10 planet with two obstacles at (4,7) and (2,3).
+
+### User Story 2 -- Landing
+The rover has a position (defined by _x_ and _y_ coordinates) and a direction -- i.e., where the rover is facing. The direction can be North (_N_), South (_S_), West (_W_), or East (_E_).
+
+The rover starts its journey from the landing position -- i.e., the position with coordinates (0,0) --, facing North (see the figure below). 
+
+![image](https://github.com/user-attachments/assets/2f8d792c-3e42-40d6-97b1-5b535faea161)
+
+To let the rover move on the planet, the rover receives a command string. Once the rover has executed the commands (specified in the command string), it returns a string containing its new status, together with the obstacles it has encountered (if any). The rover status is a string (without white spaces) formatted as follows: _"(x,y,dir)"_. For example, _"(0,1,W)"_ indicates that the rover is in the position with coordinates _(0,1)_, facing West. It is easy to follow that _dir_ is equal to: _N_ (North), _S_ (South), _E_ (Est), or _W_ (West).
+
+When the rover receives an empty command string, it returns a string consisting of the landing status -- i.e., the string _"(0,0,N)"_.
+
+**Requirement:**
+* Implement ```MarsRover.__init__(self, planet_length: int, planet_width: int, planet_obstacles: list[str])``` to define a planet (already done in the previous user story) and to initialize the rover to the landing position, facing North.
+- Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover return a string consisting of its landing status when it receives an empty command string (i.e., _""_).
+ 
+**Example:** When the rover receives an empty command string, it returns a string consisting of its landing status, namely: _"(0,0,N)"_.
+
+### User Story 3 -- Turning
+The rover turns right or left when it receives a command string _"r"_ or _"l"_, respectively. When the rover turns, it remains on the same grid's cell while it changes its direction.
+
+**Requirement:** 
+* Implement ```MarsRover.execute_command(self, command_string: str) -> str``` to let the rover turn right or left and then return a string consisting of its new status.
+ 
+**Examples:**
+* A rover with status _"(0,0,N)"_, after executing the command string _"r"_, returns a string consisting of its new status, namely: _"(0,0,E)"_.
+* On the other hand, a rover with status _"0,0,N)"_, after executing the command string _"l"_, returns: "(0,0,W)".
