@@ -1,7 +1,7 @@
 # MRA
 _MRA_ (_Mars Rover API_) is an API to move a rover (i.e., a planet exploration vehicle) and keeps track of its position and direction, together with the obstacles it has encountered (if any) while taking a tour on a planet.
 
-The planet, where the rover moves, is represented as a grid with x and y coordinates. The planet may contain obstacles in its cells.
+The planet, where the rover moves, is represented as a grid with _x_ and _y_ coordinates. The planet may contain obstacles in its cells.
 
 The rover starts its journey from the landing position -- i.e., at coordinates _(0,0)_ -- facing North.
 
@@ -36,4 +36,13 @@ command_string = "f"
 # Let the rover move on the planet according to the command string. The return string contains the new position of the rover, its direction, and the obstacles it has encountered while moving on the planet (if any)
 return_string = mars_rover.execute_command(command_string)
 ```
+
+See the provided source files to improve your understanding of the API before starting to implement the user stories. 
+
+## User Stories
+Remember to read and implement the user stories once at a time (in the provided order). Therefore, do not read the next user story, if the current one is not implemented yet.
+
+### User Story 1 -- 
+The planet, where the rover moves, is represented as a grid with _x_ and _y_ coordinates. The origin of the grid, namely _(0,0)_, is at the bottom-left corner (see the figure below).
+
 
