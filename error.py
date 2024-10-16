@@ -1,0 +1,2 @@
+class MarsRoverError(Exception):
+    pass
