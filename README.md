@@ -20,7 +20,7 @@ You do not need to know more so far. The _User Stories_ section will provide fur
 * The _MRA_ requirements are divided into a set of USER STORIES, which serve as a to-do list (see the _User Stories_ section).
 * You should be able to incrementally develop _MRA_ without an upfront comprehension of all its requirements. DO NOT read ahead and handle the requirements (specified in the user stories) one at a time in the provided order. Develop _MRA_ by starting from the first story's requirement. When a story is IMPLEMENTED, move on to the NEXT one. A story is implemented when you are confident that your program correctly implements the functionality stipulated by the story's requirement. This implies that all your test cases for that story and all the test cases for the previous stories pass. You may need to review your program as you progress toward more advanced requirements.
 * Each time you end a GREEN or REFACTOR phase, COMMIT.
-* At the end of the task, PUSH your forked project.
+* At the end of the task, PUSH your forked project and fill in the following post-questionnaire: https://forms.gle/5F1SjWfzXyikHKWBA.
 
 ## API Usage
 Take some minutes to understand, in broad terms, how the API works. If you do not fully understand the API, do not worry because more details will be given later in the _User Stories_ section. A typical API usage follows.
